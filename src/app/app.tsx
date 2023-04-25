@@ -1,16 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
-
-import NxWelcome from './nx-welcome';
+import { User } from './User/User';
 
 export function App() {
-  return (
-    <>
-      <NxWelcome title="vite-graphql-example" />
-
-      <div />
-    </>
-  );
+  return <User id="1" />;
 }
 
 export default App;

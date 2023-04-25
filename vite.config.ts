@@ -3,6 +3,8 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
 
+import graphql from '@lente/vite-plugin-graphql';
+
 export default defineConfig({
   cacheDir: './node_modules/.vite/vite-graphql-example',
 
@@ -20,6 +22,13 @@ export default defineConfig({
     react(),
     viteTsConfigPaths({
       root: './',
+    }),
+    graphql({
+      include: /\.(graphqls?|gql)$/i,
+      babel: {
+        presets: ['@babel/preset-typescript', '@babel/preset-react'],
+      },
+      rootContext: __dirname, // path to directory containing `graphql-let.yml`
     }),
   ],
 
